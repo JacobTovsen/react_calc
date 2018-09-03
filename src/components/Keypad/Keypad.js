@@ -68,9 +68,18 @@ class App extends Component {
       default:
         console.log('broken switch!');
     }
+    this.clearInputs();
   }
 
   clearInputs = () => {
+    this.setState({
+      firstValue: '',
+      mathOperator: '',
+      secondValue: ''
+    })
+  }
+
+  clearAll = () => {
     this.setState({
       firstValue: '',
       mathOperator: '',
@@ -82,39 +91,43 @@ class App extends Component {
   render() {
     return (
       <div>
-        <input placeholder="Enter First Value" type="number" value={this.state.firstValue} onChange={this.handleFirstInputChange}/>
-        <button onClick={ () => this.setOperator("+")}>+</button>
-        <button onClick={ () => this.setOperator("-")}>-</button>
-        <button onClick={ () => this.setOperator("*")}>*</button>
-        <button onClick={ () => this.setOperator("/")}>/</button>
-        <input placeholder="Enter Second Value" type="number" value={this.state.secondValue} onChange={this.handleSecondInputChange}/>
-        <button onClick={ () => this.runMath()}>=</button>
-        <button onClick={this.clearInputs}>C</button>
-        <form>{this.state.answer}</form>
-
+        <div>
+          <input placeholder="Enter First Value" type="number" value={this.state.firstValue} onChange={this.handleFirstInputChange}/>
+          <button onClick={ () => this.setOperator("+")}>+</button>
+          <button onClick={ () => this.setOperator("-")}>-</button>
+          <button onClick={ () => this.setOperator("*")}>*</button>
+          <button onClick={ () => this.setOperator("/")}>/</button>
+          <input placeholder="Enter Second Value" type="number" value={this.state.secondValue} onChange={this.handleSecondInputChange}/>
+          <button onClick={ () => this.runMath()}>=</button>
+          <button onClick={this.clearAll}>C</button>
+          <form>Answer: {this.state.answer}</form>
+        </div>
+        <div>
+          <br></br>
+          <hr></hr>
+          <br></br>
+          <form>{this.state.answer}</form>
+          <button onClick={ () => this.firstValue(1)}>1</button>
+          <button onClick={ () => this.firstValue(2)}>2</button>
+          <button onClick={ () => this.firstValue(3)}>3</button>
+          <button onClick={ () => this.setOperator("/")}>/</button>
+          <br></br>
+          <button onClick={ () => this.firstValue(4)}>4</button>
+          <button onClick={ () => this.firstValue(5)}>5</button>
+          <button onClick={ () => this.firstValue(6)}>6</button>
+          <button onClick={ () => this.setOperator("*")}>*</button>
+          <br></br>
+          <button onClick={ () => this.firstValue(7)}>7</button>
+          <button onClick={ () => this.firstValue(8)}>8</button>
+          <button onClick={ () => this.firstValue(9)}>9</button>
+          <button onClick={ () => this.setOperator("+")}>+</button>
+          <br></br>
+          <button onClick={ () => this.firstValue(0)}>0</button>
+          <button onClick={ () => this.firstValue('.')}> . </button>
+          <button onClick={ () => this.runMath()}>=</button>
+          <button onClick={ () => this.setOperator("-")}>-</button>
+        </div>
       </div>
-      // <div>
-      //   <form>{this.state.answer}</form>
-      //   <button onClick={ () => this.firstValue(1)}>1</button>
-      //   <button onClick={ () => this.firstValue(2)}>2</button>
-      //   <button onClick={ () => this.firstValue(3)}>3</button>
-      //   <button onClick={ () => this.setOperator("/")}>/</button>
-      //   <br></br>
-      //   <button onClick={ () => this.firstValue(4)}>4</button>
-      //   <button onClick={ () => this.firstValue(5)}>5</button>
-      //   <button onClick={ () => this.firstValue(6)}>6</button>
-      //   <button onClick={ () => this.setOperator("*")}>*</button>
-      //   <br></br>
-      //   <button onClick={ () => this.firstValue(7)}>7</button>
-      //   <button onClick={ () => this.firstValue(8)}>8</button>
-      //   <button onClick={ () => this.firstValue(9)}>9</button>
-      //   <button onClick={ () => this.setOperator("+")}>+</button>
-      //   <br></br>
-      //   <button onClick={ () => this.firstValue(0)}>0</button>
-      //   <button onClick={ () => this.firstValue('.')}> . </button>
-      //   <button onClick={ () => this.runMath()}>=</button>
-      //   <button onClick={ () => this.setOperator("-")}>-</button>
-      // </div>
     );
   }
 }
