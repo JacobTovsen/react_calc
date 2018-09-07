@@ -38,7 +38,7 @@ class App extends Component {
     let operator = this.state.mathOperator
     switch(operator){
       case '+':
-        let mathPlus = firstValue + secondValue;
+        let mathPlus = Number(firstValue) + Number(secondValue);
         console.log(mathPlus);
         this.setState({
           answer: mathPlus
@@ -100,6 +100,7 @@ class App extends Component {
           <input placeholder="Enter Second Value" type="number" value={this.state.secondValue} onChange={this.handleSecondInputChange}/>
           <button onClick={ () => this.runMath()}>=</button>
           <button onClick={this.clearAll}>C</button>
+          {/* <form>Answer: {this.state.firstValue} {this.state.mathOperator} {this.state.secondValue} = {this.state.answer}</form> */}
           <form>Answer: {this.state.answer}</form>
         </div>
         <div>
