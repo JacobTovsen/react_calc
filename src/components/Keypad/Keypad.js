@@ -88,6 +88,20 @@ class App extends Component {
     })
   }
 
+  handleInputChange = (number) => {
+    console.log('in handle input change', number);
+      if(this.state.mathOperator === ''){
+        this.setState({
+          firstValue: number
+        })
+      } else {
+        this.setState({
+          secondValue: number
+        })
+      }
+    console.log(this.state);
+  }
+
   render() {
     return (
       <div>
@@ -108,23 +122,23 @@ class App extends Component {
           <hr></hr>
           <br></br>
           <form>{this.state.answer}</form>
-          <button onClick={ () => this.firstValue(1)}>1</button>
-          <button onClick={ () => this.firstValue(2)}>2</button>
-          <button onClick={ () => this.firstValue(3)}>3</button>
+          <button onClick={ () => this.handleInputChange(1)}>1</button>
+          <button onClick={ () => this.handleInputChange(2)}>2</button>
+          <button onClick={ () => this.handleInputChange(3)}>3</button>
           <button onClick={ () => this.setOperator("/")}>/</button>
           <br></br>
-          <button onClick={ () => this.firstValue(4)}>4</button>
-          <button onClick={ () => this.firstValue(5)}>5</button>
-          <button onClick={ () => this.firstValue(6)}>6</button>
+          <button onClick={ () => this.handleInputChange(4)}>4</button>
+          <button onClick={ () => this.handleInputChange(5)}>5</button>
+          <button onClick={ () => this.handleInputChange(6)}>6</button>
           <button onClick={ () => this.setOperator("*")}>*</button>
           <br></br>
-          <button onClick={ () => this.firstValue(7)}>7</button>
-          <button onClick={ () => this.firstValue(8)}>8</button>
-          <button onClick={ () => this.firstValue(9)}>9</button>
+          <button onClick={ () => this.handleInputChange(7)}>7</button>
+          <button onClick={ () => this.handleInputChange(8)}>8</button>
+          <button onClick={ () => this.handleInputChange(9)}>9</button>
           <button onClick={ () => this.setOperator("+")}>+</button>
           <br></br>
-          <button onClick={ () => this.firstValue(0)}>0</button>
-          <button onClick={ () => this.firstValue('.')}> . </button>
+          <button onClick={ () => this.handleInputChange(0)}>0</button>
+          <button onClick={ () => this.handleInputChange('.')}> . </button>
           <button onClick={ () => this.runMath()}>=</button>
           <button onClick={ () => this.setOperator("-")}>-</button>
         </div>
